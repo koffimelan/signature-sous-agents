@@ -68,8 +68,7 @@ npm run dev               # interface sur http://localhost:5174
 
 ### Comptes de démonstration
 
-Créés par `npm run seed`. Le mot de passe de tous ces comptes est la valeur de `SEED_PASSWORD` dans `backend/.env`
-(par défaut `Contrats@2026`). **Ces comptes et les personnes qui y figurent sont fictifs : à supprimer avant toute mise en production.**
+Créés par `npm run seed`. Le mot de passe de tous ces comptes est la valeur de `SEED_PASSWORD` dans `backend/.env`. **Ces comptes et les personnes qui y figurent sont fictifs : à supprimer avant toute mise en production.**
 
 | Rôle | E-mail | Ce qu'il peut faire |
 |---|---|---|

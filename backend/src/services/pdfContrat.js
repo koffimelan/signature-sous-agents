@@ -205,9 +205,8 @@ async function apposerSignature(pdf, { numero, signataire, piece, image, date, i
   r.texte('L\'empreinte SHA-256 du présent document signé et son scellement par la clé privée de la Banque sont conservés '
     + 'dans la plateforme. Toute modification du fichier, même d\'un seul caractère, change son empreinte : elle est '
     + 'détectée lors de la vérification du document sur la plateforme (menu « Vérifier un contrat »).', { taille: 9, couleur: GRIS });
-  r.texte('Procédé mis en œuvre : signature électronique de niveau avancé (identification du signataire par code à usage unique, '
-    + 'lien exclusif avec le document par empreinte et scellement, détection de toute modification ultérieure), dans le cadre '
-    + 'de la loi n° 2013-546 du 30 juillet 2013 relative aux transactions électroniques.', { taille: 9, couleur: GRIS });
+  r.texte('Procédé mis en œuvre : identification du signataire par code à usage unique, empreinte SHA-256 du document '
+    + 'et scellement RSA par le cachet électronique de la Banque.', { taille: 9, couleur: GRIS });
 
   // Pied de la nouvelle page
   // (page ajoutée après la numérotation du contrat : elle est présentée comme une annexe)

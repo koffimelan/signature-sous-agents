@@ -135,10 +135,10 @@ async function seed() {
   const conformite = await Utilisateur.create({ nom: 'AKA', prenoms: 'Nadège', email: 'conformite@contrats.local', role: 'conformite', mot_de_passe: MDP });
 
   const modele = await ModeleContrat.create({
-    titre: 'Contrat de sous-agent bancaire', version: '2.0', duree_mois: 12, taux_commission: '2 000 FCFA par compte ouvert et actif, 1 % du montant des crédits mis en place', contenu: CONTENU,
+    titre: 'Contrat de sous-agent bancaire (modèle de démonstration)', version: '2.0', duree_mois: 12, taux_commission: '2 000 FCFA par compte ouvert et actif, 1 % du montant des crédits mis en place', contenu: CONTENU,
   });
   await ModeleContrat.create({
-    titre: 'Contrat de sous-agent bancaire', version: '1.0', duree_mois: 12, taux_commission: '1 500 FCFA par compte ouvert', contenu: CONTENU, actif: false,
+    titre: 'Contrat de sous-agent bancaire (modèle de démonstration)', version: '1.0', duree_mois: 12, taux_commission: '1 500 FCFA par compte ouvert', contenu: CONTENU, actif: false,
   });
 
   let graine = 1;

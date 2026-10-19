@@ -1,0 +1,650 @@
+/* =====================================================================
+   Thème de l'application - charte AFG Bank Côte d'Ivoire
+   Toutes les couleurs, la police et les tailles se règlent ici.
+   Contrastes vérifiés selon WCAG 2.1 niveau AA (4,5:1 pour le texte).
+   ===================================================================== */
+
+:root {
+  /* --- Police et tailles : celles de Windows 11 ---
+     Segoe UI Variable est la police de Windows 11, présente sur tous les postes de la banque ;
+     Segoe UI prend le relais sur Windows 10, puis la police système des autres environnements. */
+  --police: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --police-titre: "Segoe UI Variable Display", "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --police-code: "Cascadia Mono", Consolas, "Courier New", monospace;
+  /* Échelle typographique de Windows 11 (racine 16 px) ;
+     la barre d'accessibilité l'agrandit proportionnellement (A+) */
+  --taille-racine: 100%; /* 16 px */
+  --taille-texte: 0.875rem; /* 14 px : « Body » de Windows 11 */
+  --interligne: 1.43; /* 20 px pour 14 px, comme Windows 11 */
+  --taille-titre-page: 1.75rem; /* 28 px : « Title » de Windows 11 */
+  --taille-titre-section: 0.875rem; /* 14 px semi-gras : « Body Strong » de Windows 11 */
+  --taille-petit: 0.75rem; /* 12 px : « Caption » de Windows 11 */
+
+  /* --- Couleurs de la marque (relevées sur afgbankcotedivoire.com) --- */
+  --bleu-nuit: #001051; /* en-tête du site ; 17,6:1 avec le blanc */
+  --bleu: #0a2a7a; /* liens ; 12,9:1 sur blanc */
+  --vert-marque: #00a651; /* vert du site : 3,2:1 seulement, réservé aux décorations */
+  --vert: #007a3d; /* nuance foncée du vert AFG : 5,45:1 avec le blanc */
+  --vert-survol: #00612f;
+  --rouge-marque: #e20000; /* rouge du logo : 4,96:1 */
+  --rouge: #c40000; /* 6,27:1 avec le blanc */
+  --jaune: #ffc107; /* toujours avec du texte noir : 12,9:1 */
+
+  /* --- Couleurs d'usage --- */
+  --texte: #353535; /* texte du site ; 12,3:1 sur blanc */
+  --texte-attenue: #555f6a; /* 6:1 sur le fond gris */
+  --fond: #f4f6f9;
+  --surface: #ffffff;
+  --bordure: #c9d1db;
+  --entete-tableau: #eef2f7;
+  --menu-fond: var(--bleu-nuit);
+  --menu-texte: #dce1f5;
+  --menu-actif-fond: rgba(255, 255, 255, 0.14);
+  --menu-actif-texte: #ffffff;
+  --menu-indicateur: var(--vert-marque);
+
+  /* --- Interaction --- */
+  --focus-externe: #ffbf00; /* anneau jaune, visible sur fond clair comme sur fond sombre */
+  --focus-interne: #001051;
+  --cible-min: 44px; /* taille minimale d'une zone cliquable */
+  --rayon: 6px;
+  --largeur-menu: 270px;
+
+  /* --- Variables Bootstrap reliées au thème --- */
+  --bs-body-font-family: var(--police);
+  --bs-body-font-size: var(--taille-texte);
+  --bs-body-line-height: var(--interligne);
+  --bs-body-color: var(--texte);
+  --bs-body-bg: var(--fond);
+  --bs-secondary-color: var(--texte-attenue);
+  --bs-border-color: var(--bordure);
+  --bs-link-color: var(--bleu);
+  --bs-link-color-rgb: 10, 42, 122;
+  --bs-link-hover-color: var(--bleu-nuit);
+  --bs-link-hover-color-rgb: 0, 16, 81;
+  --bs-heading-color: var(--bleu-nuit);
+}
+
+/* Tailles de texte proposées par la barre d'accessibilité (A- / A / A+) */
+:root[data-taille="1"] { --taille-racine: 100%; }   /* tailles du site, par défaut */
+:root[data-taille="2"] { --taille-racine: 112.5%; } /* +12,5 % */
+:root[data-taille="3"] { --taille-racine: 125%; }   /* +25 % */
+:root[data-taille="4"] { --taille-racine: 150%; }   /* +50 % */
+
+/* Mode contraste élevé : noir sur blanc, bordures marquées */
+:root.contraste-eleve {
+  --texte: #000000;
+  --texte-attenue: #000000;
+  --fond: #ffffff;
+  --surface: #ffffff;
+  --bordure: #000000;
+  --entete-tableau: #e6e6e6;
+  --bleu: #00006e;
+  --vert: #005a2c;
+  --vert-survol: #003d1e;
+  --rouge: #a00000;
+  --menu-fond: #000000;
+  --menu-texte: #ffffff;
+  --menu-actif-fond: #ffbf00;
+  --menu-actif-texte: #000000;
+  --menu-indicateur: #ffbf00;
+  --bs-link-color-rgb: 0, 0, 110;
+}
+
+/* =====================================================================
+   Base typographique
+   ===================================================================== */
+html {
+  font-size: var(--taille-racine); /* en %, suit le zoom et la taille choisie dans le navigateur */
+}
+
+body {
+  font-family: var(--police);
+  font-size: var(--taille-texte);
+  line-height: var(--interligne);
+  color: var(--texte);
+  background: var(--fond);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--police);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--bs-heading-color);
+}
+
+h1, .titre-page { font-family: var(--police-titre); font-size: var(--taille-titre-page); line-height: 1.3; }
+h2 { font-size: var(--taille-titre-section); }
+h3 { font-size: var(--taille-titre-section); }
+
+.small, small { font-size: var(--taille-petit); }
+
+a { text-underline-offset: 0.15em; }
+
+.contraste-eleve a:not(.btn):not(.nav-link) { text-decoration: underline; }
+
+/* Lien d'évitement : premier élément atteint au clavier */
+.lien-evitement {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 2000;
+  background: var(--surface);
+  color: var(--bleu-nuit);
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--bleu-nuit);
+  border-radius: var(--rayon);
+  font-weight: 600;
+}
+
+.lien-evitement:focus { top: 1rem; }
+
+/* =====================================================================
+   Focus clavier : anneau jaune et bleu nuit, visible partout
+   ===================================================================== */
+:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid var(--focus-externe) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px var(--focus-interne) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bleu-nuit);
+  box-shadow: 0 0 0 2px var(--focus-interne), 0 0 0 5px var(--focus-externe);
+}
+
+/* =====================================================================
+   Zones cliquables d'au moins 44 x 44 px
+   ===================================================================== */
+.btn,
+.btn-sm {
+  min-height: max(var(--cible-min), 2.75rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-weight: 500;
+  border-radius: var(--rayon);
+  --bs-btn-font-size: var(--taille-texte); /* 14 px, comme les boutons du site */
+}
+
+.btn-sm { padding: 0.35rem 0.8rem; --bs-btn-font-size: var(--taille-texte); }
+
+.btn-link { min-width: var(--cible-min); }
+
+.form-control,
+.form-select {
+  min-height: max(var(--cible-min), 2.75rem);
+  font-size: var(--taille-texte);
+  border-color: #8a96a3; /* bordure de champ : 3,2:1 sur blanc (composant d'interface) */
+}
+
+.contraste-eleve .form-control,
+.contraste-eleve .form-select { border: 2px solid #000; }
+
+.form-label { font-weight: 600; color: var(--texte); }
+
+.form-text { color: var(--texte-attenue); }
+
+.form-check-input { width: 1.4em; height: 1.4em; margin-top: 0.05em; }
+
+.form-check { min-height: var(--cible-min); display: flex; align-items: center; gap: 0.5rem; }
+
+.btn-close {
+  width: var(--cible-min);
+  height: var(--cible-min);
+  padding: 0;
+  opacity: 0.8;
+}
+
+/* =====================================================================
+   Structure générale
+   ===================================================================== */
+.app { min-height: 100vh; }
+
+.barre-laterale {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--largeur-menu);
+  background: var(--menu-fond);
+  color: var(--menu-texte);
+  overflow-y: auto;
+  z-index: 1040;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.barre-laterale .marque {
+  display: flex;
+  align-items: center;
+  padding: 1.1rem 1.2rem;
+  font-size: 1.05rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.barre-laterale .nav { padding: 0.6rem 0.5rem 1rem; }
+
+.barre-laterale .nav-link {
+  color: var(--menu-texte);
+  border-radius: var(--rayon);
+  padding: 0.55rem 0.8rem;
+  margin-bottom: 2px;
+  min-height: var(--cible-min);
+  display: flex;
+  align-items: center;
+}
+
+.barre-laterale .nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
+}
+
+.barre-laterale .nav-link.active {
+  color: var(--menu-actif-texte);
+  background: var(--menu-actif-fond);
+  box-shadow: inset 4px 0 0 var(--menu-indicateur);
+  font-weight: 700;
+}
+
+.barre-laterale .nav-link.active .bi { color: var(--menu-indicateur); }
+
+.contraste-eleve .barre-laterale .nav-link.active .bi { color: #000; }
+
+.principal {
+  margin-left: var(--largeur-menu);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.barre-haut {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border-top: 3px solid var(--vert-marque);
+  border-bottom: 1px solid var(--bordure);
+  padding: 0.6rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.contenu { padding: 1.5rem; flex: 1; }
+
+.contenu:focus { outline: none; }
+
+.voile {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1030;
+}
+
+@media (max-width: 991.98px) {
+  .barre-laterale { transform: translateX(-100%); }
+  .barre-laterale.ouverte { transform: none; }
+  .principal { margin-left: 0; }
+  .contenu { padding: 1rem; }
+}
+
+/* Logo : lettres rouge et verte d'AFG sur pastille blanche */
+.logo-afg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+}
+
+.logo-afg .a { color: var(--rouge-marque); }
+.logo-afg .fg { color: var(--vert); }
+
+/* =====================================================================
+   Composants
+   ===================================================================== */
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+}
+
+.contraste-eleve .carte { border-width: 2px; }
+
+.carte-titre {
+  font-size: var(--taille-titre-section);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--bleu-nuit);
+}
+
+.contraste-eleve .carte-titre { color: #000; }
+
+.indicateur .valeur { font-family: var(--police-titre); font-size: 1.75rem; font-weight: 600; line-height: 1.1; color: var(--bleu-nuit); }
+.indicateur .libelle { color: var(--texte-attenue); }
+
+.table-donnees { background: var(--surface); margin-bottom: 0; }
+
+.table-donnees thead th {
+  background: var(--entete-tableau);
+  font-size: var(--taille-petit);
+  font-weight: 600;
+  color: var(--texte);
+  white-space: nowrap;
+}
+
+.table-donnees td { vertical-align: middle; }
+
+.contraste-eleve .table-donnees,
+.contraste-eleve .table-donnees th,
+.contraste-eleve .table-donnees td { border-color: #000; }
+
+.ligne-cliquable { cursor: pointer; }
+
+.reference {
+  font-family: var(--police-code);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Pastilles de statut : le texte est toujours écrit, la couleur ne fait que l'appuyer */
+.badge {
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.4em 0.7em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.text-bg-primary { background-color: var(--bleu-nuit) !important; color: #fff !important; }
+.text-bg-success { background-color: var(--vert) !important; color: #fff !important; }
+.text-bg-danger { background-color: var(--rouge) !important; color: #fff !important; }
+.text-bg-secondary { background-color: #5c6670 !important; color: #fff !important; }
+.text-bg-warning { background-color: var(--jaune) !important; color: #000 !important; }
+.text-bg-info { background-color: #9eeaf9 !important; color: #000 !important; }
+
+.contraste-eleve .badge {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000;
+}
+
+/* Page de connexion */
+.page-connexion {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bleu-nuit), var(--bleu));
+  padding: 1rem;
+}
+
+.contraste-eleve .page-connexion { background: #000; }
+
+.page-connexion .carte { width: 100%; max-width: 440px; padding: 2rem; }
+
+/* Boutons principaux : vert AFG foncé (5,45:1 avec le texte blanc) */
+.btn-primary {
+  --bs-btn-bg: var(--vert);
+  --bs-btn-border-color: var(--vert);
+  --bs-btn-hover-bg: var(--vert-survol);
+  --bs-btn-hover-border-color: var(--vert-survol);
+  --bs-btn-active-bg: var(--vert-survol);
+  --bs-btn-active-border-color: var(--vert-survol);
+  --bs-btn-disabled-bg: var(--vert);
+  --bs-btn-disabled-border-color: var(--vert);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+}
+
+.btn-success {
+  --bs-btn-bg: var(--vert);
+  --bs-btn-border-color: var(--vert);
+  --bs-btn-hover-bg: var(--vert-survol);
+  --bs-btn-hover-border-color: var(--vert-survol);
+}
+
+.btn-danger {
+  --bs-btn-bg: var(--rouge);
+  --bs-btn-border-color: var(--rouge);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bleu-nuit);
+  --bs-btn-border-color: var(--bleu-nuit);
+  --bs-btn-hover-bg: var(--bleu-nuit);
+  --bs-btn-hover-border-color: var(--bleu-nuit);
+  --bs-btn-active-bg: var(--bleu-nuit);
+  --bs-btn-active-border-color: var(--bleu-nuit);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--texte);
+  --bs-btn-border-color: #6b7682;
+  --bs-btn-hover-bg: var(--texte);
+  --bs-btn-hover-border-color: var(--texte);
+}
+
+.btn-outline-danger { --bs-btn-color: var(--rouge); --bs-btn-border-color: var(--rouge); --bs-btn-hover-bg: var(--rouge); }
+.btn-outline-success { --bs-btn-color: var(--vert); --bs-btn-border-color: var(--vert); --bs-btn-hover-bg: var(--vert); }
+
+.contraste-eleve .btn { border-width: 2px; }
+
+.contraste-eleve .btn-primary,
+.contraste-eleve .btn-success {
+  --bs-btn-bg: #000;
+  --bs-btn-border-color: #000;
+  --bs-btn-hover-bg: #333;
+}
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--bleu-nuit);
+  --bs-nav-link-color: var(--bleu);
+}
+
+.nav-pills .nav-link { min-height: var(--cible-min); }
+
+/* Boutons d'action à icône dans les tableaux (voir, modifier, supprimer...) */
+.actions { display: flex; justify-content: flex-end; gap: 6px; white-space: nowrap; }
+
+/* La colonne Actions reste visible à droite quand le tableau défile */
+.table-donnees td:has(> .actions),
+.table-donnees th.text-end:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  border-left: 1px solid var(--bordure);
+}
+
+.table-donnees td:has(> .actions) { background-color: var(--surface); }
+
+.btn-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cible-min);
+  height: var(--cible-min);
+  padding: 0;
+  border-radius: var(--rayon);
+  border: 1px solid #6b7682; /* 4,9:1 : bord visible (composant d'interface) */
+  background: var(--surface);
+  color: var(--texte);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-icone:hover:not(:disabled) { background: var(--bleu-nuit); border-color: var(--bleu-nuit); color: #fff; }
+.btn-icone.succes { color: var(--vert); border-color: var(--vert); }
+.btn-icone.succes:hover:not(:disabled) { background: var(--vert); color: #fff; }
+.btn-icone.danger { color: var(--rouge); border-color: var(--rouge); }
+.btn-icone.danger:hover:not(:disabled) { background: var(--rouge); color: #fff; }
+.btn-icone:disabled { opacity: 0.45; cursor: not-allowed; }
+.contraste-eleve .btn-icone { border: 2px solid #000; color: #000; }
+
+/* =====================================================================
+   Barre d'accessibilité
+   ===================================================================== */
+.accessibilite { padding: 0.5rem 0.75rem 1rem; margin-top: auto; }
+
+.accessibilite-bouton {
+  width: 100%;
+  min-height: var(--cible-min);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--menu-texte);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--rayon);
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+}
+
+.accessibilite-bouton:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.accessibilite-panneau {
+  margin-top: 0.5rem;
+  background: var(--surface);
+  color: var(--texte);
+  border: 2px solid var(--bleu-nuit);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.contraste-eleve .accessibilite-panneau { border-color: #ffbf00; }
+
+.accessibilite-panneau .groupe-titre { font-weight: 700; margin-bottom: 0.35rem; color: var(--texte); }
+
+.accessibilite-tailles { display: flex; gap: 0.4rem; }
+
+.accessibilite-tailles .btn { flex: 1; padding: 0.3rem; font-weight: 700; }
+
+/* Variante flottante (page de connexion, sans menu) */
+.accessibilite.flottante {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 290px;
+  z-index: 1050;
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.accessibilite.flottante .accessibilite-bouton {
+  background: var(--surface);
+  color: var(--bleu-nuit);
+  border-color: var(--bleu-nuit);
+}
+
+.accessibilite.flottante .accessibilite-panneau { margin: 0 0 0.5rem; }
+
+.interrupteur {
+  width: 100%;
+  min-height: var(--cible-min);
+  display: flex;
+  flex-wrap: wrap; /* en très grand texte, l'état passe à la ligne au lieu de déborder */
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 0.5rem;
+  background: var(--surface);
+  color: var(--texte);
+  border: 2px solid #6b7682;
+  border-radius: var(--rayon);
+  padding: 0.4rem 0.7rem;
+  font-weight: 600;
+}
+
+.interrupteur .etat {
+  font-size: var(--taille-petit);
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+}
+
+.interrupteur[aria-checked="true"] { background: #000; color: #fff; border-color: #000; }
+
+/* =====================================================================
+   Signature électronique, circuit de validation et vérification
+   ===================================================================== */
+.empreinte {
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  word-break: break-all;
+  background: var(--fond);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  padding: 0.4rem 0.6rem;
+}
+
+.zone-signature {
+  border: 2px dashed var(--bordure-forte, #8a94a0);
+  border-radius: var(--rayon);
+  background: #fff;
+  touch-action: none; /* le doigt trace la signature au lieu de faire défiler la page */
+}
+.zone-signature canvas { display: block; width: 100%; height: 190px; cursor: crosshair; }
+.contraste-eleve .zone-signature { border: 3px solid #000; }
+
+.code-otp {
+  font-family: var(--police-code);
+  font-size: 1.6rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+  max-width: 14rem;
+}
+
+.etapes { list-style: none; padding: 0; margin: 0; }
+.etapes li { display: flex; gap: 0.75rem; padding-bottom: 1rem; position: relative; }
+.etapes li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.95rem;
+  top: 2rem;
+  bottom: 0.1rem;
+  border-left: 2px solid var(--bordure);
+}
+.etapes .rond {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bordure);
+  background: var(--surface);
+  color: var(--texte-attenue);
+}
+.etapes .faite .rond { background: var(--vert); border-color: var(--vert); color: #fff; }
+.etapes .refusee .rond { background: var(--rouge); border-color: var(--rouge); color: #fff; }
+.etapes .courante .rond { border-color: var(--bleu-nuit); color: var(--bleu-nuit); }
+.etapes .titre-etape { font-weight: 600; }
+
+.verdict { border-left: 6px solid; padding: 1rem 1.25rem; border-radius: var(--rayon); background: var(--surface); }
+.verdict.ok { border-color: var(--vert); }
+.verdict.ko { border-color: var(--rouge); }
+.verdict.neutre { border-color: var(--jaune); }
+.verdict h2 { font-size: var(--taille-titre-sous-page, 1.25rem); margin-bottom: 0.25rem; }
+
+.liste-pieces .piece { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--bordure); }
+.liste-pieces .piece:last-child { border-bottom: 0; }
+.apercu-pdf { width: 100%; height: 70vh; border: 1px solid var(--bordure); border-radius: var(--rayon); background: #fff; }

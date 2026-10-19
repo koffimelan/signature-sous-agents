@@ -1,0 +1,8 @@
+node_modules/
+frontend/dist/
+backend/.env
+backend/data/*.sqlite
+# Pièces des candidats, contrats signés et clé privée du cachet : jamais dans le dépôt
+backend/stockage/
+backend/cles/
+backend/data/*.sqlite-journal

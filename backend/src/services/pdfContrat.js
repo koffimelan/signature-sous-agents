@@ -5,7 +5,8 @@ const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 // Logo officiel d'AFG Bank (repris du site afgbankcotedivoire.com), en tête du contrat et du certificat
 const LOGO = fs.readFileSync(path.join(__dirname, '../../assets/logo-afg.png'));
 
-// Génération du contrat PDF à partir du modèle, puis apposition de la signature (pdf-lib)
+// Génération du contrat PDF à partir du modèle, puis apposition de la signature (pdf-lib).
+// Police Times, équivalente à Times New Roman, comme les autres documents de la banque
 const BLEU = rgb(0, 16 / 255, 81 / 255);
 const VERT = rgb(0, 122 / 255, 61 / 255);
 const GRIS = rgb(0.33, 0.37, 0.42);
@@ -56,9 +57,9 @@ function decouper(texte, police, taille, largeur) {
 // Petit outil d'écriture qui gère le retour à la ligne et le changement de page
 async function redacteur(doc) {
   const polices = {
-    normal: await doc.embedFont(StandardFonts.Helvetica),
-    gras: await doc.embedFont(StandardFonts.HelveticaBold),
-    italique: await doc.embedFont(StandardFonts.HelveticaOblique),
+    normal: await doc.embedFont(StandardFonts.TimesRoman),
+    gras: await doc.embedFont(StandardFonts.TimesRomanBold),
+    italique: await doc.embedFont(StandardFonts.TimesRomanItalic),
   };
   const r = { doc, polices, logo: await doc.embedPng(LOGO), page: null, y: 0 };
   r.nouvellePage = () => {
@@ -164,8 +165,8 @@ async function apposerSignature(pdf, { numero, signataire, piece, image, date, i
   doc.setModificationDate(date);
   doc.setKeywords([numero, 'signé électroniquement', `empreinte du contrat validé : ${empreinteValidee}`]);
   const polices = {
-    normal: await doc.embedFont(StandardFonts.Helvetica),
-    gras: await doc.embedFont(StandardFonts.HelveticaBold),
+    normal: await doc.embedFont(StandardFonts.TimesRoman),
+    gras: await doc.embedFont(StandardFonts.TimesRomanBold),
   };
   const pages = doc.getPages();
   const derniere = pages[pages.length - 1];

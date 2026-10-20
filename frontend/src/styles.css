@@ -222,7 +222,8 @@ a { text-underline-offset: 0.15em; }
 
 .barre-laterale .marque {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 1.1rem 1.2rem;
   font-size: 1.05rem;
   color: #fff;
@@ -296,23 +297,9 @@ a { text-underline-offset: 0.15em; }
   .contenu { padding: 1rem; }
 }
 
-/* Logo : lettres rouge et verte d'AFG sur pastille blanche */
-.logo-afg {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 50%;
-  background: #fff;
-  font-weight: 800;
-  font-size: 0.85rem;
-  letter-spacing: -0.03em;
-  flex-shrink: 0;
-}
-
-.logo-afg .a { color: var(--rouge-marque); }
-.logo-afg .fg { color: var(--vert); }
+/* Logo officiel d'AFG Bank (afgbankcotedivoire.com) */
+.logo-menu { height: 4rem; width: auto; margin-bottom: 0.6rem; padding: 0.35rem 0.6rem; background: #fff; border-radius: var(--rayon); }
+.logo-connexion { width: 12rem; max-width: 100%; height: auto; }
 
 /* =====================================================================
    Composants

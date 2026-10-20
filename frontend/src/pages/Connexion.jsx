@@ -4,13 +4,10 @@ import { useAuth } from '../auth/AuthContext';
 import { accueil } from '../components/Layout';
 import { messageErreur } from '../api';
 import BarreAccessibilite from '../components/BarreAccessibilite';
+import logoAfg from '../assets/logo-afg.png';
 
 export function Logo() {
-  return (
-    <span className="logo-afg" style={{ width: '4rem', height: '4rem', fontSize: '1.4rem', border: '2px solid var(--bleu-nuit)' }} aria-hidden="true">
-      <span className="a">A</span><span className="fg">FG</span>
-    </span>
-  );
+  return <img src={logoAfg} alt="AFG Bank" className="logo-connexion" />;
 }
 
 export default function Connexion() {

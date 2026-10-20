@@ -3,6 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { ROLES } from '../libelles';
 import BarreAccessibilite from './BarreAccessibilite';
+import logoAfg from '../assets/logo-afg.png';
 
 const PERSONNEL = ['admin', 'commercial', 'conformite'];
 
@@ -42,7 +43,7 @@ export default function Layout() {
       <a href="#contenu" className="lien-evitement">Aller au contenu principal</a>
       <aside className={`barre-laterale ${menuOuvert ? 'ouverte' : ''}`}>
         <div className="marque">
-          <span className="logo-afg me-2" aria-hidden="true"><span className="a">A</span><span className="fg">FG</span></span>
+          <img src={logoAfg} alt="AFG Bank" className="logo-menu" />
           <div>
             <div className="fw-bold">Contrats des sous-agents</div>
             <div className="small">AFG Bank Côte d&apos;Ivoire</div>

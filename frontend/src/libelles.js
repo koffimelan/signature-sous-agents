@@ -7,24 +7,24 @@ export const ROLES = {
   sous_agent: 'Sous-agent',
 };
 
-// Chaque statut a un texte et une couleur (l'information ne repose jamais sur la couleur seule)
+// Chaque statut est écrit en toutes lettres dans une pastille, de la même couleur pour tous
 export const STATUTS_SOUS_AGENT = {
-  brouillon: { texte: 'Dossier en cours', couleur: 'secondary' },
-  soumis: { texte: 'À étudier', couleur: 'warning' },
-  admis: { texte: 'Admis', couleur: 'info' },
-  rejete: { texte: 'Rejeté', couleur: 'danger' },
-  actif: { texte: 'Actif', couleur: 'success' },
-  inactif: { texte: 'Inactif', couleur: 'secondary' },
+  brouillon: { texte: 'Dossier en cours' },
+  soumis: { texte: 'À étudier' },
+  admis: { texte: 'Admis' },
+  rejete: { texte: 'Rejeté' },
+  actif: { texte: 'Actif' },
+  inactif: { texte: 'Inactif' },
 };
 
 export const STATUTS_CONTRAT = {
-  brouillon: { texte: 'Validation commerciale', couleur: 'warning' },
-  validation_conformite: { texte: 'Validation conformité', couleur: 'warning' },
-  a_signer: { texte: 'À signer', couleur: 'info' },
-  signe: { texte: 'Signé', couleur: 'success' },
-  rejete: { texte: 'Rejeté', couleur: 'danger' },
-  expire: { texte: 'Expiré', couleur: 'secondary' },
-  resilie: { texte: 'Résilié', couleur: 'secondary' },
+  brouillon: { texte: 'Validation commerciale' },
+  validation_conformite: { texte: 'Validation conformité' },
+  a_signer: { texte: 'À signer' },
+  signe: { texte: 'Signé' },
+  rejete: { texte: 'Rejeté' },
+  expire: { texte: 'Expiré' },
+  resilie: { texte: 'Résilié' },
 };
 
 export const TYPES_PIECE = {
@@ -39,9 +39,9 @@ export const PIECES_OBLIGATOIRES = ['cni', 'photo', 'justificatif_domicile'];
 export const TYPES_IDENTITE = { cni: 'Carte nationale d\'identité', passeport: 'Passeport', carte_sejour: 'Carte de séjour' };
 
 export const NIVEAUX_ALERTE = {
-  'J-30': { texte: 'Échéance dans 30 jours', couleur: 'warning' },
-  'J-7': { texte: 'Échéance dans 7 jours', couleur: 'danger' },
-  echu: { texte: 'Expiré', couleur: 'secondary' },
+  'J-30': { texte: 'Échéance dans 30 jours' },
+  'J-7': { texte: 'Échéance dans 7 jours' },
+  echu: { texte: 'Expiré' },
 };
 
 export const ETAPES = { commercial: 'Validation commerciale', conformite: 'Validation de conformité' };

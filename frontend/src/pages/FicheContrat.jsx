@@ -96,10 +96,10 @@ export default function FicheContrat() {
         <div className="align-self-center"><PastilleContrat statut={c.statut} /></div>
         {peutDecider && (
           <>
-            <button type="button" className="btn btn-success" onClick={() => ouvrirModale('valider', c.statut === 'brouillon' ? 'Validation commerciale' : 'Validation de conformité')}>
+            <button type="button" className="btn btn-primary" onClick={() => ouvrirModale('valider', c.statut === 'brouillon' ? 'Validation commerciale' : 'Validation de conformité')}>
               <i className="bi bi-check-lg me-1" aria-hidden="true" />Valider
             </button>
-            <button type="button" className="btn btn-outline-danger" onClick={() => ouvrirModale('rejeter', 'Rejeter le contrat')}>
+            <button type="button" className="btn btn-outline-primary" onClick={() => ouvrirModale('rejeter', 'Rejeter le contrat')}>
               <i className="bi bi-x-lg me-1" aria-hidden="true" />Rejeter
             </button>
           </>
@@ -110,7 +110,7 @@ export default function FicheContrat() {
           </button>
         )}
         {c.statut === 'signe' && aLeRole('commercial', 'admin') && (
-          <button type="button" className="btn btn-outline-danger" onClick={() => ouvrirModale('resilier', 'Résilier le contrat')}>
+          <button type="button" className="btn btn-outline-primary" onClick={() => ouvrirModale('resilier', 'Résilier le contrat')}>
             <i className="bi bi-slash-circle me-1" aria-hidden="true" />Résilier
           </button>
         )}
@@ -180,7 +180,7 @@ export default function FicheContrat() {
               <button type="button" className="btn btn-outline-secondary" onClick={() => setModale(null)}>Annuler</button>
               <button
                 type="button"
-                className={`btn ${modale.action === 'valider' ? 'btn-success' : 'btn-danger'}`}
+                className="btn btn-primary"
                 disabled={modale.action !== 'valider' && !texte.trim()}
                 onClick={() => envoyer(modale.action, modale.action === 'valider' ? { commentaire: texte } : { motif: texte }, {
                   valider: c.statut === 'brouillon' ? 'Contrat validé : il est transmis à la conformité' : 'Contrat validé : le sous-agent est invité à le signer',

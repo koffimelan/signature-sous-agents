@@ -20,10 +20,10 @@ const COULEURS = {
 };
 const MOIS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
 
-function Indicateur({ valeur, libelle, icone, couleur, lien }) {
+function Indicateur({ valeur, libelle, icone, lien }) {
   const contenu = (
     <div className="carte indicateur h-100 d-flex align-items-center gap-3">
-      <div className={`rounded-3 p-2 bg-${couleur}-subtle text-${couleur}-emphasis`}><i className={`bi bi-${icone} fs-4`} aria-hidden="true" /></div>
+      <div className="rounded-3 p-2 indicateur-picto"><i className={`bi bi-${icone} fs-4`} aria-hidden="true" /></div>
       <div><div className="valeur">{valeur}</div><div className="libelle">{libelle}</div></div>
     </div>
   );
@@ -42,10 +42,10 @@ export default function TableauDeBord() {
     <>
       <EnTete titre="Tableau de bord" sousTitre={`Contrats des sous-agents au ${new Date().toLocaleDateString('fr-FR')}`} />
       <div className="row g-3 mb-3">
-        <div className="col-6 col-xl-3"><Indicateur valeur={d.total_contrats_en_vigueur} libelle="Contrats en vigueur" icone="file-earmark-check" couleur="success" lien="/contrats" /></div>
-        <div className="col-6 col-xl-3"><Indicateur valeur={d.sous_agents.soumis + aValider} libelle="Dossiers et contrats à traiter" icone="list-check" couleur="warning" lien="/a-valider" /></div>
-        <div className="col-6 col-xl-3"><Indicateur valeur={d.contrats.a_signer} libelle="En attente de signature" icone="pen" couleur="primary" lien="/contrats" /></div>
-        <div className="col-6 col-xl-3"><Indicateur valeur={formatDelai(d.delai_moyen_heures)} libelle="Délai moyen candidature - signature" icone="stopwatch" couleur="info" /></div>
+        <div className="col-6 col-xl-3"><Indicateur valeur={d.total_contrats_en_vigueur} libelle="Contrats en vigueur" icone="file-earmark-check" lien="/contrats" /></div>
+        <div className="col-6 col-xl-3"><Indicateur valeur={d.sous_agents.soumis + aValider} libelle="Dossiers et contrats à traiter" icone="list-check" lien="/a-valider" /></div>
+        <div className="col-6 col-xl-3"><Indicateur valeur={d.contrats.a_signer} libelle="En attente de signature" icone="pen" lien="/contrats" /></div>
+        <div className="col-6 col-xl-3"><Indicateur valeur={formatDelai(d.delai_moyen_heures)} libelle="Délai moyen candidature - signature" icone="stopwatch" /></div>
       </div>
 
       <div className="row g-3 mb-3">

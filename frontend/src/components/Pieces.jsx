@@ -56,11 +56,10 @@ export default function Pieces({ pieces, urlEnvoi, modifiable, onChange }) {
           const obligatoire = PIECES_OBLIGATOIRES.includes(type);
           return (
             <div className="piece" key={type}>
-              <i className={`bi ${piece ? 'bi-file-earmark-check text-success' : 'bi-file-earmark'} fs-4`} aria-hidden="true" />
               <div className="flex-grow-1">
                 <div className="fw-semibold">
                   {libelle}{' '}
-                  {obligatoire ? <Pastille couleur={piece ? 'success' : 'warning'}>{piece ? 'Fournie' : 'Obligatoire'}</Pastille>
+                  {obligatoire ? <Pastille>{piece ? 'Fournie' : 'Obligatoire'}</Pastille>
                     : <span className="text-muted small">(facultative)</span>}
                 </div>
                 {piece && <div className="small text-muted">{piece.nom_origine} - {tailleFichier(piece.taille)} - déposée le {formatDateHeure(piece.createdAt)}</div>}

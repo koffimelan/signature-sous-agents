@@ -97,10 +97,10 @@ export default function FicheSousAgent() {
         <div className="align-self-center"><PastilleSousAgent statut={s.statut} /></div>
         {gestionnaire && s.statut === 'soumis' && (
           <>
-            <button type="button" className="btn btn-success" onClick={() => action(`/sous-agents/${s.id}/admettre`, {}, 'Candidature admise : le contrat peut être généré')}>
+            <button type="button" className="btn btn-primary" onClick={() => action(`/sous-agents/${s.id}/admettre`, {}, 'Candidature admise : le contrat peut être généré')}>
               <i className="bi bi-check-lg me-1" aria-hidden="true" />Admettre
             </button>
-            <button type="button" className="btn btn-outline-danger" onClick={() => { setMotif(''); setModale('rejet'); }}>
+            <button type="button" className="btn btn-outline-primary" onClick={() => { setMotif(''); setModale('rejet'); }}>
               <i className="bi bi-x-lg me-1" aria-hidden="true" />Rejeter
             </button>
           </>
@@ -168,7 +168,7 @@ export default function FicheSousAgent() {
         <Modale
           titre="Rejeter la candidature"
           onFermer={() => setModale(null)}
-          pied={<><button type="button" className="btn btn-outline-secondary" onClick={() => setModale(null)}>Annuler</button><button type="button" className="btn btn-danger" disabled={!motif.trim()} onClick={() => action(`/sous-agents/${s.id}/rejeter`, { motif }, 'Candidature rejetée : le candidat a été informé par e-mail')}>Rejeter</button></>}
+          pied={<><button type="button" className="btn btn-outline-secondary" onClick={() => setModale(null)}>Annuler</button><button type="button" className="btn btn-primary" disabled={!motif.trim()} onClick={() => action(`/sous-agents/${s.id}/rejeter`, { motif }, 'Candidature rejetée : le candidat a été informé par e-mail')}>Rejeter</button></>}
         >
           <Champ libelle="Motif communiqué au candidat *" aide="Indiquez ce qu'il doit corriger : il pourra compléter son dossier et le soumettre à nouveau.">
             <textarea className="form-control" rows={3} value={motif} onChange={(e) => setMotif(e.target.value)} />

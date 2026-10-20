@@ -26,7 +26,7 @@ export default function MesContrats() {
               </div>
               <div className="d-flex gap-2">
                 {c.statut === 'a_signer' ? (
-                  <button type="button" className="btn btn-success" onClick={() => naviguer(`/mes-contrats/${c.id}/signer`)}>
+                  <button type="button" className="btn btn-primary" onClick={() => naviguer(`/mes-contrats/${c.id}/signer`)}>
                     <i className="bi bi-pen me-1" aria-hidden="true" />Lire et signer
                   </button>
                 ) : (

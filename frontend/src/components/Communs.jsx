@@ -4,44 +4,42 @@ import {
 import api, { messageErreur } from '../api';
 import { STATUTS_SOUS_AGENT, STATUTS_CONTRAT, NIVEAUX_ALERTE } from '../libelles';
 
-// Pastilles de statut : le texte est toujours affiché, la couleur ne fait que l'appuyer
-export function Pastille({ couleur = 'secondary', children }) {
-  return <span className={`badge rounded-pill text-bg-${couleur}`}>{children}</span>;
+// Pastilles de statut : une seule couleur pour tous les statuts, c'est le texte qui les distingue
+export function Pastille({ children }) {
+  return <span className="badge rounded-pill pastille">{children}</span>;
 }
 
 const pastille = (liste, cle) => {
   const s = liste[cle];
-  return <Pastille couleur={s?.couleur}>{s?.texte || cle}</Pastille>;
+  return <Pastille>{s?.texte || cle}</Pastille>;
 };
 export const PastilleSousAgent = ({ statut }) => pastille(STATUTS_SOUS_AGENT, statut);
 export const PastilleContrat = ({ statut }) => pastille(STATUTS_CONTRAT, statut);
 export const PastilleAlerte = ({ niveau }) => pastille(NIVEAUX_ALERTE, niveau);
 
-// Bouton d'action à icône utilisé dans les tableaux.
-// Le libellé apparaît en infobulle au survol et il est lu par les lecteurs d'écran.
-const VARIANTES = {
-  voir: { icone: 'eye', classe: 'neutre' },
-  modifier: { icone: 'pencil-square', classe: 'neutre' },
-  supprimer: { icone: 'trash3', classe: 'danger' },
-  pdf: { icone: 'file-earmark-pdf', classe: 'neutre' },
-  valider: { icone: 'check-lg', classe: 'succes' },
-  rejeter: { icone: 'x-lg', classe: 'danger' },
-  signer: { icone: 'pen', classe: 'succes' },
-  lu: { icone: 'check2', classe: 'neutre' },
+// Bouton d'action des tableaux : un mot écrit, sans icône ni couleur particulière.
+// Le titre complet (« Ouvrir la pièce … ») apparaît en infobulle au survol.
+const LIBELLES = {
+  voir: 'Voir',
+  modifier: 'Modifier',
+  supprimer: 'Supprimer',
+  pdf: 'PDF',
+  valider: 'Valider',
+  rejeter: 'Rejeter',
+  signer: 'Signer',
+  lu: 'Traitée',
 };
 
 export function BoutonIcone({ action, titre, onClick, disabled }) {
-  const { icone, classe } = VARIANTES[action];
   return (
     <button
       type="button"
-      className={`btn-icone ${classe}`}
+      className="btn btn-outline-primary btn-action"
       title={titre}
-      aria-label={titre}
       disabled={disabled}
       onClick={(e) => { e.stopPropagation(); onClick?.(e); }}
     >
-      <i className={`bi bi-${icone}`} aria-hidden="true" />
+      {LIBELLES[action]}
     </button>
   );
 }

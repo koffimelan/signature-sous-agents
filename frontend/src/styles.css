@@ -362,7 +362,7 @@ a { text-underline-offset: 0.15em; }
   white-space: nowrap;
 }
 
-/* Pastilles de statut : le texte est toujours écrit, la couleur ne fait que l'appuyer */
+/* Pastilles de statut : même couleur pour tous les statuts, le texte suffit à les distinguer */
 .badge {
   font-size: 0.85em;
   font-weight: 600;
@@ -372,12 +372,12 @@ a { text-underline-offset: 0.15em; }
   gap: 0.3em;
 }
 
-.text-bg-primary { background-color: var(--bleu-nuit) !important; color: #fff !important; }
-.text-bg-success { background-color: var(--vert) !important; color: #fff !important; }
-.text-bg-danger { background-color: var(--rouge) !important; color: #fff !important; }
-.text-bg-secondary { background-color: #5c6670 !important; color: #fff !important; }
-.text-bg-warning { background-color: var(--jaune) !important; color: #000 !important; }
-.text-bg-info { background-color: #9eeaf9 !important; color: #000 !important; }
+.pastille,
+.badge[class*="text-bg-"] {
+  background-color: #e8ecf5 !important; /* bleu nuit très clair */
+  color: var(--bleu-nuit) !important; /* 14,9:1 sur ce fond */
+  border: 1px solid var(--bleu-nuit);
+}
 
 .contraste-eleve .badge {
   background: #fff !important;
@@ -460,7 +460,7 @@ a { text-underline-offset: 0.15em; }
 
 .nav-pills .nav-link { min-height: var(--cible-min); }
 
-/* Boutons d'action à icône dans les tableaux (voir, modifier, supprimer...) */
+/* Boutons d'action dans les tableaux (voir, modifier, supprimer...) */
 .actions { display: flex; justify-content: flex-end; gap: 6px; white-space: nowrap; }
 
 /* La colonne Actions reste visible à droite quand le tableau défile */
@@ -474,29 +474,10 @@ a { text-underline-offset: 0.15em; }
 
 .table-donnees td:has(> .actions) { background-color: var(--surface); }
 
-.btn-icone {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--cible-min);
-  height: var(--cible-min);
-  padding: 0;
-  border-radius: var(--rayon);
-  border: 1px solid #6b7682; /* 4,9:1 : bord visible (composant d'interface) */
-  background: var(--surface);
-  color: var(--texte);
-  font-size: 1.1rem;
-  line-height: 1;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+.btn-action {
+  min-height: var(--cible-min);
+  white-space: nowrap;
 }
-
-.btn-icone:hover:not(:disabled) { background: var(--bleu-nuit); border-color: var(--bleu-nuit); color: #fff; }
-.btn-icone.succes { color: var(--vert); border-color: var(--vert); }
-.btn-icone.succes:hover:not(:disabled) { background: var(--vert); color: #fff; }
-.btn-icone.danger { color: var(--rouge); border-color: var(--rouge); }
-.btn-icone.danger:hover:not(:disabled) { background: var(--rouge); color: #fff; }
-.btn-icone:disabled { opacity: 0.45; cursor: not-allowed; }
-.contraste-eleve .btn-icone { border: 2px solid #000; color: #000; }
 
 /* =====================================================================
    Barre d'accessibilité
@@ -648,3 +629,6 @@ a { text-underline-offset: 0.15em; }
 .liste-pieces .piece { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--bordure); }
 .liste-pieces .piece:last-child { border-bottom: 0; }
 .apercu-pdf { width: 100%; height: 70vh; border: 1px solid var(--bordure); border-radius: var(--rayon); background: #fff; }
+
+/* Pictogramme des indicateurs du tableau de bord : même couleur pour tous */
+.indicateur-picto { background-color: #e8ecf5; color: var(--bleu-nuit); }

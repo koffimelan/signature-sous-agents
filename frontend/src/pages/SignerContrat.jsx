@@ -160,7 +160,7 @@ export default function SignerContrat() {
             <h2 className="carte-titre">4. Tracez votre signature</h2>
             <ZoneSignature onChange={surSignature} />
 
-            <button type="submit" className="btn btn-success w-100 mt-3" disabled={!pret || enCours}>
+            <button type="submit" className="btn btn-primary w-100 mt-3" disabled={!pret || enCours}>
               <i className="bi bi-pen me-1" aria-hidden="true" />{enCours ? 'Signature en cours...' : 'Signer le contrat'}
             </button>
             <p className="small text-muted mt-2 mb-0">

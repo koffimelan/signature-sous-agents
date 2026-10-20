@@ -1,4 +1,9 @@
+const fs = require('fs');
+const path = require('path');
 const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
+
+// Logo officiel d'AFG Bank (repris du site afgbankcotedivoire.com), en tête du contrat et du certificat
+const LOGO = fs.readFileSync(path.join(__dirname, '../../assets/logo-afg.png'));
 
 // Génération du contrat PDF à partir du modèle, puis apposition de la signature (pdf-lib)
 const BLEU = rgb(0, 16 / 255, 81 / 255);
@@ -55,7 +60,7 @@ async function redacteur(doc) {
     gras: await doc.embedFont(StandardFonts.HelveticaBold),
     italique: await doc.embedFont(StandardFonts.HelveticaOblique),
   };
-  const r = { doc, polices, page: null, y: 0 };
+  const r = { doc, polices, logo: await doc.embedPng(LOGO), page: null, y: 0 };
   r.nouvellePage = () => {
     r.page = doc.addPage([LARGEUR, HAUTEUR]);
     r.y = HAUTEUR - MARGE;
@@ -81,11 +86,13 @@ async function redacteur(doc) {
 }
 
 function entete(r, numero) {
-  const { page, polices } = r;
-  page.drawRectangle({ x: MARGE, y: HAUTEUR - MARGE - 30, width: 30, height: 30, color: BLEU });
-  page.drawText('AFG', { x: MARGE + 3.5, y: HAUTEUR - MARGE - 19, size: 10.5, font: polices.gras, color: rgb(1, 1, 1) });
-  page.drawText('AFG Bank Côte d\'Ivoire', { x: MARGE + 40, y: HAUTEUR - MARGE - 12, size: 12, font: polices.gras, color: BLEU });
-  page.drawText('Direction commerciale - Réseau des sous-agents', { x: MARGE + 40, y: HAUTEUR - MARGE - 26, size: 8.5, font: polices.normal, color: GRIS });
+  const { page, polices, logo } = r;
+  // Logo de 32 points de haut, le texte de l'émetteur à sa droite
+  const largeurLogo = (logo.width / logo.height) * 32;
+  page.drawImage(logo, { x: MARGE, y: HAUTEUR - MARGE - 32, width: largeurLogo, height: 32 });
+  const xTexte = MARGE + largeurLogo + 12;
+  page.drawText('AFG Bank Côte d\'Ivoire', { x: xTexte, y: HAUTEUR - MARGE - 12, size: 12, font: polices.gras, color: BLEU });
+  page.drawText('Direction commerciale - Réseau des sous-agents', { x: xTexte, y: HAUTEUR - MARGE - 26, size: 8.5, font: polices.normal, color: GRIS });
   const ref = `Contrat n° ${numero}`;
   page.drawText(ref, { x: LARGEUR - MARGE - polices.gras.widthOfTextAtSize(ref, 9), y: HAUTEUR - MARGE - 12, size: 9, font: polices.gras, color: BLEU });
   r.y = HAUTEUR - MARGE - 42;

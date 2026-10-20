@@ -67,7 +67,7 @@ export default function Pieces({ pieces, urlEnvoi, modifiable, onChange }) {
               {piece && <BoutonIcone action="voir" titre={`Ouvrir la pièce « ${libelle} »`} onClick={() => voir(piece)} />}
               {modifiable && (
                 <>
-                  <label className="btn btn-outline-primary mb-0" htmlFor={`piece-${type}`}>
+                  <label className="btn btn-outline-primary btn-action mb-0" htmlFor={`piece-${type}`}>
                     {envoiEnCours === type ? 'Envoi...' : (piece ? 'Remplacer' : 'Déposer')}
                   </label>
                   <input

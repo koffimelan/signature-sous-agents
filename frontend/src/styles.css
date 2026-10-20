@@ -374,9 +374,8 @@ a { text-underline-offset: 0.15em; }
 
 .pastille,
 .badge[class*="text-bg-"] {
-  background-color: #e8ecf5 !important; /* bleu nuit très clair */
-  color: var(--bleu-nuit) !important; /* 14,9:1 sur ce fond */
-  border: 1px solid var(--bleu-nuit);
+  background-color: #dde3f0 !important; /* bleu nuit très clair */
+  color: var(--bleu-nuit) !important; /* 13,7:1 sur ce fond */
 }
 
 .contraste-eleve .badge {
@@ -469,15 +468,25 @@ a { text-underline-offset: 0.15em; }
   position: sticky;
   right: 0;
   z-index: 1;
-  border-left: 1px solid var(--bordure);
 }
 
 .table-donnees td:has(> .actions) { background-color: var(--surface); }
 
 .btn-action {
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: #e8ecf5;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-hover-color: var(--bleu-nuit);
+  --bs-btn-active-bg: #dde3f0;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-active-color: var(--bleu-nuit);
   min-height: var(--cible-min);
   white-space: nowrap;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
+.contraste-eleve .btn-action { --bs-btn-border-color: #000; }
 
 /* =====================================================================
    Barre d'accessibilité

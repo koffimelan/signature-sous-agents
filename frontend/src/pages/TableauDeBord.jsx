@@ -16,7 +16,7 @@ ChartJS.defaults.font.size = 13;
 ChartJS.defaults.color = '#353535';
 
 const COULEURS = {
-  brouillon: '#e0a100', validation_conformite: '#f0c24b', a_signer: '#3d5bb5', signe: '#007a3d', rejete: '#c40000', expire: '#5c6670', resilie: '#9aa5b1',
+  brouillon: '#c77700', validation_conformite: '#e8a33d', a_signer: '#22272a', signe: '#00ad00', rejete: '#e20000', expire: '#808080', resilie: '#b3b3b3',
 };
 const MOIS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
 
@@ -65,7 +65,7 @@ export default function TableauDeBord() {
             <h2 className="carte-titre">Contrats signés en ligne (6 derniers mois)</h2>
             <div role="img" aria-label={`Signatures par mois : ${d.mois.map((m) => `${MOIS[Number(m.mois.slice(5)) - 1]} ${m.signatures}`).join(', ')}`}>
               <Bar
-                data={{ labels: d.mois.map((m) => MOIS[Number(m.mois.slice(5)) - 1]), datasets: [{ data: d.mois.map((m) => m.signatures), backgroundColor: '#001051', borderRadius: 4 }] }}
+                data={{ labels: d.mois.map((m) => MOIS[Number(m.mois.slice(5)) - 1]), datasets: [{ data: d.mois.map((m) => m.signatures), backgroundColor: '#007a00', borderRadius: 4 }] }}
                 options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } }, x: { grid: { display: false } } } }}
               />
             </div>

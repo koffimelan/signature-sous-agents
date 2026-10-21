@@ -20,32 +20,37 @@
   --taille-titre-section: 0.875rem; /* 14 px semi-gras : « Body Strong » de Windows 11 */
   --taille-petit: 0.75rem; /* 12 px : « Caption » de Windows 11 */
 
-  /* --- Couleurs de la marque (relevées sur afgbankcotedivoire.com) --- */
-  --bleu-nuit: #001051; /* en-tête du site ; 17,6:1 avec le blanc */
-  --bleu: #0a2a7a; /* liens ; 12,9:1 sur blanc */
-  --vert-marque: #00a651; /* vert du site : 3,2:1 seulement, réservé aux décorations */
-  --vert: #007a3d; /* nuance foncée du vert AFG : 5,45:1 avec le blanc */
-  --vert-survol: #00612f;
+  /* --- Couleurs du logo d'AFG Bank : vert #00ad00, rouge #e20000, gris #808080 --- */
+  --vert-marque: #00ad00; /* vert du logo : repères et liserés (5:1 sur l'anthracite) */
+  --vert: #007a00; /* vert du logo assombri : boutons principaux, 5,55:1 avec le blanc */
+  --vert-survol: #006400;
   --rouge-marque: #e20000; /* rouge du logo : 4,96:1 */
   --rouge: #c40000; /* 6,27:1 avec le blanc */
+  --gris-marque: #808080; /* gris du logo : repères uniquement */
   --jaune: #ffc107; /* toujours avec du texte noir : 12,9:1 */
 
+  /* --- Couleurs complémentaires --- */
+  --anthracite: #22272a; /* menu, titres, contours : 15:1 avec le blanc */
+  --ambre: #9a4d00; /* statuts qui attendent une action : 6,1:1 sur blanc */
+  --lien: #006400; /* liens : 7,4:1 sur blanc */
+  --teinte-verte: #e8f3e8; /* survol et éléments actifs */
+
   /* --- Couleurs d'usage --- */
-  --texte: #353535; /* texte du site ; 12,3:1 sur blanc */
-  --texte-attenue: #555f6a; /* 6:1 sur le fond gris */
-  --fond: #f4f6f9;
+  --texte: #353535; /* 11,3:1 sur le fond */
+  --texte-attenue: #5a5a5a; /* gris du logo assombri : 6,4:1 sur le fond */
+  --fond: #f5f6f5;
   --surface: #ffffff;
-  --bordure: #c9d1db;
-  --entete-tableau: #eef2f7;
-  --menu-fond: var(--bleu-nuit);
-  --menu-texte: #dce1f5;
+  --bordure: #d4d8d5;
+  --entete-tableau: #eef1ee;
+  --menu-fond: var(--anthracite);
+  --menu-texte: #e3e6e4; /* 12:1 sur l'anthracite */
   --menu-actif-fond: rgba(255, 255, 255, 0.14);
   --menu-actif-texte: #ffffff;
   --menu-indicateur: var(--vert-marque);
 
   /* --- Interaction --- */
   --focus-externe: #ffbf00; /* anneau jaune, visible sur fond clair comme sur fond sombre */
-  --focus-interne: #001051;
+  --focus-interne: #22272a;
   --cible-min: 44px; /* taille minimale d'une zone cliquable */
   --rayon: 6px;
   --largeur-menu: 270px;
@@ -58,11 +63,11 @@
   --bs-body-bg: var(--fond);
   --bs-secondary-color: var(--texte-attenue);
   --bs-border-color: var(--bordure);
-  --bs-link-color: var(--bleu);
-  --bs-link-color-rgb: 10, 42, 122;
-  --bs-link-hover-color: var(--bleu-nuit);
-  --bs-link-hover-color-rgb: 0, 16, 81;
-  --bs-heading-color: var(--bleu-nuit);
+  --bs-link-color: var(--lien);
+  --bs-link-color-rgb: 0, 100, 0;
+  --bs-link-hover-color: var(--anthracite);
+  --bs-link-hover-color-rgb: 34, 39, 42;
+  --bs-heading-color: var(--anthracite);
 }
 
 /* Tailles de texte proposées par la barre d'accessibilité (A- / A / A+) */
@@ -130,9 +135,9 @@ a { text-underline-offset: 0.15em; }
   top: -100px;
   z-index: 2000;
   background: var(--surface);
-  color: var(--bleu-nuit);
+  color: var(--anthracite);
   padding: 0.6rem 1rem;
-  border: 2px solid var(--bleu-nuit);
+  border: 2px solid var(--anthracite);
   border-radius: var(--rayon);
   font-weight: 600;
 }
@@ -140,7 +145,7 @@ a { text-underline-offset: 0.15em; }
 .lien-evitement:focus { top: 1rem; }
 
 /* =====================================================================
-   Focus clavier : anneau jaune et bleu nuit, visible partout
+   Focus clavier : anneau jaune et anthracite, visible partout
    ===================================================================== */
 :focus-visible,
 .btn:focus-visible,
@@ -154,7 +159,7 @@ a { text-underline-offset: 0.15em; }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: var(--bleu-nuit);
+  border-color: var(--anthracite);
   box-shadow: 0 0 0 2px var(--focus-interne), 0 0 0 5px var(--focus-externe);
 }
 
@@ -317,12 +322,12 @@ a { text-underline-offset: 0.15em; }
   font-size: var(--taille-titre-section);
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: var(--bleu-nuit);
+  color: var(--anthracite);
 }
 
 .contraste-eleve .carte-titre { color: #000; }
 
-.indicateur .valeur { font-family: var(--police-titre); font-size: 1.75rem; font-weight: 600; line-height: 1.1; color: var(--bleu-nuit); }
+.indicateur .valeur { font-family: var(--police-titre); font-size: 1.75rem; font-weight: 600; line-height: 1.1; color: var(--anthracite); }
 .indicateur .libelle { color: var(--texte-attenue); }
 
 .table-donnees { background: var(--surface); margin-bottom: 0; }
@@ -361,8 +366,8 @@ a { text-underline-offset: 0.15em; }
 
 .pastille,
 .badge[class*="text-bg-"] {
-  background-color: #dde3f0 !important; /* bleu nuit très clair */
-  color: var(--bleu-nuit) !important; /* 13,7:1 sur ce fond */
+  background-color: #dcecdc !important; /* vert très clair */
+  color: var(--anthracite) !important; /* 13,7:1 sur ce fond */
 }
 
 .contraste-eleve .badge {
@@ -377,7 +382,7 @@ a { text-underline-offset: 0.15em; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bleu-nuit), var(--bleu));
+  background: linear-gradient(135deg, var(--anthracite), var(--lien));
   padding: 1rem;
 }
 
@@ -412,17 +417,17 @@ a { text-underline-offset: 0.15em; }
 }
 
 .btn-outline-primary {
-  --bs-btn-color: var(--bleu-nuit);
-  --bs-btn-border-color: var(--bleu-nuit);
-  --bs-btn-hover-bg: var(--bleu-nuit);
-  --bs-btn-hover-border-color: var(--bleu-nuit);
-  --bs-btn-active-bg: var(--bleu-nuit);
-  --bs-btn-active-border-color: var(--bleu-nuit);
+  --bs-btn-color: var(--anthracite);
+  --bs-btn-border-color: var(--anthracite);
+  --bs-btn-hover-bg: var(--anthracite);
+  --bs-btn-hover-border-color: var(--anthracite);
+  --bs-btn-active-bg: var(--anthracite);
+  --bs-btn-active-border-color: var(--anthracite);
 }
 
 .btn-outline-secondary {
   --bs-btn-color: var(--texte);
-  --bs-btn-border-color: #6b7682;
+  --bs-btn-border-color: #767676;
   --bs-btn-hover-bg: var(--texte);
   --bs-btn-hover-border-color: var(--texte);
 }
@@ -440,8 +445,8 @@ a { text-underline-offset: 0.15em; }
 }
 
 .nav-pills {
-  --bs-nav-pills-link-active-bg: var(--bleu-nuit);
-  --bs-nav-link-color: var(--bleu);
+  --bs-nav-pills-link-active-bg: var(--anthracite);
+  --bs-nav-link-color: var(--lien);
 }
 
 .nav-pills .nav-link { min-height: var(--cible-min); }
@@ -461,12 +466,12 @@ a { text-underline-offset: 0.15em; }
 
 .btn-action {
   --bs-btn-border-color: transparent;
-  --bs-btn-hover-bg: #e8ecf5;
+  --bs-btn-hover-bg: #e8f3e8;
   --bs-btn-hover-border-color: transparent;
-  --bs-btn-hover-color: var(--bleu-nuit);
-  --bs-btn-active-bg: #dde3f0;
+  --bs-btn-hover-color: var(--anthracite);
+  --bs-btn-active-bg: #dcecdc;
   --bs-btn-active-border-color: transparent;
-  --bs-btn-active-color: var(--bleu-nuit);
+  --bs-btn-active-color: var(--anthracite);
   min-height: var(--cible-min);
   white-space: nowrap;
   font-weight: 600;
@@ -500,7 +505,7 @@ a { text-underline-offset: 0.15em; }
   margin-top: 0.5rem;
   background: var(--surface);
   color: var(--texte);
-  border: 2px solid var(--bleu-nuit);
+  border: 2px solid var(--anthracite);
   border-radius: 8px;
   padding: 0.8rem;
 }
@@ -527,8 +532,8 @@ a { text-underline-offset: 0.15em; }
 
 .accessibilite.flottante .accessibilite-bouton {
   background: var(--surface);
-  color: var(--bleu-nuit);
-  border-color: var(--bleu-nuit);
+  color: var(--anthracite);
+  border-color: var(--anthracite);
 }
 
 .accessibilite.flottante .accessibilite-panneau { margin: 0 0 0.5rem; }
@@ -544,7 +549,7 @@ a { text-underline-offset: 0.15em; }
   gap: 0.5rem;
   background: var(--surface);
   color: var(--texte);
-  border: 2px solid #6b7682;
+  border: 2px solid #767676;
   border-radius: var(--rayon);
   padding: 0.4rem 0.7rem;
   font-weight: 600;
@@ -613,7 +618,7 @@ a { text-underline-offset: 0.15em; }
 }
 .etapes .faite .rond { background: var(--vert); border-color: var(--vert); color: #fff; }
 .etapes .refusee .rond { background: var(--rouge); border-color: var(--rouge); color: #fff; }
-.etapes .courante .rond { border-color: var(--bleu-nuit); color: var(--bleu-nuit); }
+.etapes .courante .rond { border-color: var(--anthracite); color: var(--anthracite); }
 .etapes .titre-etape { font-weight: 600; }
 
 .verdict { border-left: 6px solid; padding: 1rem 1.25rem; border-radius: var(--rayon); background: var(--surface); }
@@ -626,5 +631,14 @@ a { text-underline-offset: 0.15em; }
 .liste-pieces .piece:last-child { border-bottom: 0; }
 .apercu-pdf { width: 100%; height: 70vh; border: 1px solid var(--bordure); border-radius: var(--rayon); background: #fff; }
 
+/* Statuts : le mot seul, sans fond, en vert (en règle), ambre (attend une action), rouge (problème)
+   ou gris (neutre, terminé). Vert, rouge et gris viennent du logo, assombris pour être lisibles sur blanc */
+.pastille[class*="ton-"] { background-color: transparent !important; padding: 0; border-radius: 0; font-size: 1em; }
+.pastille.ton-vert { color: #006400 !important; }
+.pastille.ton-ambre { color: #9a4d00 !important; }
+.pastille.ton-rouge { color: #b00000 !important; }
+.pastille.ton-gris { color: #5a5a5a !important; }
+.contraste-eleve .pastille[class*="ton-"] { color: #000 !important; }
+
 /* Pictogramme des indicateurs du tableau de bord : même couleur pour tous */
-.indicateur-picto { background-color: #e8ecf5; color: var(--bleu-nuit); }
+.indicateur-picto { background-color: #e8f3e8; color: var(--anthracite); }

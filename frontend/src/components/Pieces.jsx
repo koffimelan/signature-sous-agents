@@ -59,7 +59,7 @@ export default function Pieces({ pieces, urlEnvoi, modifiable, onChange }) {
               <div className="flex-grow-1">
                 <div className="fw-semibold">
                   {libelle}{' '}
-                  {obligatoire ? <Pastille>{piece ? 'Fournie' : 'Obligatoire'}</Pastille>
+                  {obligatoire ? <Pastille ton={piece ? 'vert' : 'ambre'}>{piece ? 'Fournie' : 'Obligatoire'}</Pastille>
                     : <span className="text-muted small">(facultative)</span>}
                 </div>
                 {piece && <div className="small text-muted">{piece.nom_origine} - {tailleFichier(piece.taille)} - déposée le {formatDateHeure(piece.createdAt)}</div>}

@@ -4,14 +4,14 @@ import {
 import api, { messageErreur } from '../api';
 import { STATUTS_SOUS_AGENT, STATUTS_CONTRAT, NIVEAUX_ALERTE } from '../libelles';
 
-// Pastilles de statut : une seule couleur pour tous les statuts, c'est le texte qui les distingue
-export function Pastille({ children }) {
-  return <span className="badge rounded-pill pastille">{children}</span>;
+// Pastilles de statut : le mot seul, dans la teinte (ton) qui correspond au statut
+export function Pastille({ ton, children }) {
+  return <span className={`badge rounded-pill pastille${ton ? ` ton-${ton}` : ''}`}>{children}</span>;
 }
 
 const pastille = (liste, cle) => {
   const s = liste[cle];
-  return <Pastille>{s?.texte || cle}</Pastille>;
+  return <Pastille ton={s?.ton}>{s?.texte || cle}</Pastille>;
 };
 export const PastilleSousAgent = ({ statut }) => pastille(STATUTS_SOUS_AGENT, statut);
 export const PastilleContrat = ({ statut }) => pastille(STATUTS_CONTRAT, statut);

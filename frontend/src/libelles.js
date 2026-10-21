@@ -7,24 +7,25 @@ export const ROLES = {
   sous_agent: 'Sous-agent',
 };
 
-// Chaque statut est écrit en toutes lettres dans une pastille, de la même couleur pour tous
+// Chaque statut est écrit en toutes lettres, en vert (en règle), ambre (attend une action),
+// rouge (problème) ou gris (neutre ou terminé) : vert, rouge et gris viennent du logo d'AFG Bank
 export const STATUTS_SOUS_AGENT = {
-  brouillon: { texte: 'Dossier en cours' },
-  soumis: { texte: 'À étudier' },
-  admis: { texte: 'Admis' },
-  rejete: { texte: 'Rejeté' },
-  actif: { texte: 'Actif' },
-  inactif: { texte: 'Inactif' },
+  brouillon: { texte: 'Dossier en cours', ton: 'gris' },
+  soumis: { texte: 'À étudier', ton: 'ambre' },
+  admis: { texte: 'Admis', ton: 'vert' },
+  rejete: { texte: 'Rejeté', ton: 'rouge' },
+  actif: { texte: 'Actif', ton: 'vert' },
+  inactif: { texte: 'Inactif', ton: 'gris' },
 };
 
 export const STATUTS_CONTRAT = {
-  brouillon: { texte: 'Validation commerciale' },
-  validation_conformite: { texte: 'Validation conformité' },
-  a_signer: { texte: 'À signer' },
-  signe: { texte: 'Signé' },
-  rejete: { texte: 'Rejeté' },
-  expire: { texte: 'Expiré' },
-  resilie: { texte: 'Résilié' },
+  brouillon: { texte: 'Validation commerciale', ton: 'ambre' },
+  validation_conformite: { texte: 'Validation conformité', ton: 'ambre' },
+  a_signer: { texte: 'À signer', ton: 'ambre' },
+  signe: { texte: 'Signé', ton: 'vert' },
+  rejete: { texte: 'Rejeté', ton: 'rouge' },
+  expire: { texte: 'Expiré', ton: 'gris' },
+  resilie: { texte: 'Résilié', ton: 'gris' },
 };
 
 export const TYPES_PIECE = {
@@ -39,9 +40,9 @@ export const PIECES_OBLIGATOIRES = ['cni', 'photo', 'justificatif_domicile'];
 export const TYPES_IDENTITE = { cni: 'Carte nationale d\'identité', passeport: 'Passeport', carte_sejour: 'Carte de séjour' };
 
 export const NIVEAUX_ALERTE = {
-  'J-30': { texte: 'Échéance dans 30 jours' },
-  'J-7': { texte: 'Échéance dans 7 jours' },
-  echu: { texte: 'Expiré' },
+  'J-30': { texte: 'Échéance dans 30 jours', ton: 'ambre' },
+  'J-7': { texte: 'Échéance dans 7 jours', ton: 'rouge' },
+  echu: { texte: 'Expiré', ton: 'gris' },
 };
 
 export const ETAPES = { commercial: 'Validation commerciale', conformite: 'Validation de conformité' };

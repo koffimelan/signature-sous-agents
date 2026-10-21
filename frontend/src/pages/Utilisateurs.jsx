@@ -92,7 +92,7 @@ export default function Utilisateurs() {
                     <td>{u.email}</td>
                     <td>{u.telephone || '-'}</td>
                     <td>{ROLES[u.role]}</td>
-                    <td>{u.actif ? <Pastille>Actif</Pastille> : <Pastille>Désactivé</Pastille>}</td>
+                    <td>{u.actif ? <Pastille ton="vert">Actif</Pastille> : <Pastille ton="gris">Désactivé</Pastille>}</td>
                     <td><Actions><BoutonIcone action="modifier" titre={`Modifier le compte de ${u.prenoms} ${u.nom}`} onClick={() => setModale(u)} /></Actions></td>
                   </tr>
                 ))}

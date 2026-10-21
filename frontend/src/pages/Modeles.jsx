@@ -87,7 +87,7 @@ export default function Modeles() {
                     <td>{m.duree_mois} mois</td>
                     <td>{m.taux_commission}</td>
                     <td className="small">{formatDateHeure(m.updatedAt)}</td>
-                    <td>{m.actif ? <Pastille>En vigueur</Pastille> : <Pastille>Archivé</Pastille>}</td>
+                    <td>{m.actif ? <Pastille ton="vert">En vigueur</Pastille> : <Pastille ton="gris">Archivé</Pastille>}</td>
                     <td><Actions><BoutonIcone action={modifiable ? 'modifier' : 'voir'} titre={`${modifiable ? 'Modifier' : 'Consulter'} le modèle ${m.titre} v${m.version}`} onClick={() => setModale(m)} /></Actions></td>
                   </tr>
                 ))}
